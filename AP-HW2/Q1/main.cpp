@@ -4,7 +4,7 @@
 
 int main(int argc, char const *argv[])
 {
-	Map map{20};
+	Map map{10};
 	map.showMap();
 	return 0;
 }
