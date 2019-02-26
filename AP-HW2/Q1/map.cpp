@@ -15,6 +15,19 @@ Map::Map(int n) {
 		}
 	}
 	std::cout << "Map was created!" << std::endl;
+
+	// Initialzing final Route by " "
+	for (size_t i{}; i < mapSize; i++)
+	{
+		finalRoute.push_back(std::vector<char>());
+		for (size_t j{}; j < mapSize; j++)
+		{
+			finalRoute[i].push_back(' ');
+		}
+	}
+	finalRoute[0][0] = '*'; // Setting stating point to "*"
+	
+	
 }
 
 void Map::showMap() {
@@ -24,6 +37,26 @@ void Map::showMap() {
 		for (size_t j{}; j < mapSize; j++)
 		{
 			std::cout << std::setw(2) << mainMap[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
+int Map::findRoute() {
+	std::cout << "Trying to find route..." << std::endl;
+
+	
+	
+	return sizeof(finalRoute);
+}
+
+void Map::showRoute() {
+	std::cout << "The route is: " << std::endl;
+	for (size_t i{}; i < mapSize; i++)
+	{
+		for (size_t j{}; j < mapSize; j++)
+		{
+			std::cout << std::setw(2) << finalRoute[i][j] << " ";
 		}
 		std::cout << std::endl;
 	}
