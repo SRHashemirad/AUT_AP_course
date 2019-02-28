@@ -1,3 +1,6 @@
+#ifndef MAP_H
+#define MAP_H
+
 #include <vector>
 
 
@@ -33,3 +36,4 @@ public:
 
 	size_t sumDiff{};
 };
+#endif

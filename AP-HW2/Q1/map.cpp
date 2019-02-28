@@ -155,9 +155,9 @@ int Map::findRoute3D() {
 			}
 		}
 
+		std::cout << "direct is: " << direct << std::endl;
 		direct = 0;
-		
-        std::cout << "direct is: " << direct << std::endl;
+        
 		finalRoute3D[currentX][currentY] = '*';
 		std::cout << "X is " << currentX << ", Y is " << currentY << std::endl;
 	}
