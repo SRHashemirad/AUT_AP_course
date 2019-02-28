@@ -1,15 +1,11 @@
 #ifndef LIBARR_H
-#define LIBARR_h
+#define LIBARR_H
 
 class LibArr {
 
 public:
-	LibArr(int);
-
-	int n{};
-	
+	LibArr();
+	long long counter(long long);
 };
-
-
 
 #endif

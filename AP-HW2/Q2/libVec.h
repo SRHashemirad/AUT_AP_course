@@ -1,11 +1,15 @@
 #ifndef LIBVEC_H
 #define LIBVEC_H
 
+#include <vector>
+
 class LibVec {
 public:
-	LibVec(int);
 
+LibVec();
+long long counter(long long);
 
-	int n{};
+std::vector <long long> vec{};
+
 };
 #endif
