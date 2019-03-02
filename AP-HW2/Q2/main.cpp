@@ -46,5 +46,5 @@ long long runTime(T1 obj, T2 ptrCounter, long long n) {
 	long int start_s{clock()};
 	(obj.*ptrCounter)(n);
 	long int stop_s{clock()};	
-	return (stop_s - start_s) / static_cast<double>(CLOCKS_PER_SEC) * 10000000;
+	return (stop_s - start_s) / static_cast<double>(CLOCKS_PER_SEC) * 1000000;
 }
