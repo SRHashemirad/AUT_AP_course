@@ -8,7 +8,7 @@ int main(int argc, char const *argv[])
 {
 	//srand(static_cast<int>(time(0))); //Generating real random numbers every exection.
 
-	Map map{3};
+	Map map{10};
 	map.showMap();
 
 	//Part I
