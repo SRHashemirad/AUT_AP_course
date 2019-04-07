@@ -4,14 +4,44 @@
 int main() {
 
 	myVec vec{};
-//	std::cout << vec.capacity <<" OK!" << std::endl;
-	vec.push_back(10);
-//	std::cout << vec.capacity <<" OK!" << std::endl;
-	vec.push_back(20);
-	for (int i{}; i<100; i++)
+	for(size_t i{}; i < 50; i++)
 	{
+		//std::cout << "iter " << i << ": ";
 		vec.push_back(i);
+		/*std::cout << "Cap is: "
+				  << vec.capacity
+				  << ", Size is: "
+				  << vec.size
+				  << std::endl;*/
 	}
+
 	vec.show();
+	
+	for(size_t i{}; i < 20; i++)
+	{
+		//std::cout << "iter " << i << ": ";
+		vec.pop_back();
+		/*std::cout << "Cap is: "
+				  << vec.capacity
+				  << ", Size is: "
+				  << vec.size
+				  << std::endl;*/
+	}
+
+	vec.show();
+	
+	for(size_t i{}; i < 30; i++)
+	{
+		//std::cout << "iter " << i << ": ";
+		vec.push_back(i);
+		/*std::cout << "Cap is: "
+				  << vec.capacity
+				  << ", Size is: "
+				  << vec.size
+				  << std::endl;*/
+	}
+
+	vec.show();
+	
 	return 0;
 }

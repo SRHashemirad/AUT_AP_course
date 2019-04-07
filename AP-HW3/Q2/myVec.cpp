@@ -54,3 +54,41 @@ void myVec::push_back(int newNum)
 	
 	arr[size-1] = newNum;
 }
+
+void myVec::pop_back() {
+
+	//If size is zero or smaller, we can not pop_back the array!
+	if (size < 1) 
+	{
+		std::cout << "pop_back is not possible!" << std::endl;
+		return;
+	}
+	
+	arr[size-1] = 0;
+	
+	//Checking if capacity needs to be smaller or not
+	
+	long int log2OfSize{static_cast<long int>(std::log2(size))};
+
+	if(size == (1 << log2OfSize))
+	{
+		//copy old data to tempArr
+		int* tempArr{new int [size-1]};
+		for (long int i{}; i < size-1; i++)
+		{
+			tempArr[i] = arr[i];
+		}
+
+		std::cout << "capacity halved!" << std::endl;
+		capacity /= 2;
+
+		arr = new int [capacity];
+		for (long int i{}; i < size-1; i++)
+		{
+			arr[i] = tempArr[i];
+		}
+		delete[] tempArr;
+	}
+
+	size--;
+}

@@ -1,5 +1,5 @@
-#ifndef MYVEC_H
-#define MYVEC_H
+#ifndef MY_VEC_H
+#define MY_VEC_H
 
 #include <iostream>
 #include <iomanip>
@@ -11,6 +11,7 @@ public:
 	~myVec();
 	void show();
 	void push_back(int);
+	void pop_back();
 	
 	long int size;
 	long int capacity;
