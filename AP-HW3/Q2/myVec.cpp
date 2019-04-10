@@ -11,13 +11,33 @@ myVec::myVec() {
 	arr = new int[capacity];
 }
 
+myVec::myVec(const myVec& vec) {
+	std::cout << "copy constructor" << std::endl;
+	size = vec.size;
+	capacity = vec.capacity;
+
+	arr = new int [capacity];
+	for (long int i{}; i < capacity; i++)
+	{
+		arr[i] = vec.arr[i];
+	}
+}
+
+myVec::myVec(myVec&& vec) {
+	std::cout << "move constructor" << std::endl;
+	size = vec.size;
+	capacity = vec.capacity;
+	arr = vec.arr;
+	vec.arr = nullptr;
+}
+
 
 myVec::~myVec() {
 	std::cout << "I'm dying..." << std::endl;
 	delete[] arr;
 }
 
-void myVec::show() {
+void myVec::show() const {
 	std::cout << "The vector is: ";
 	for (long int i{}; i < size; i++)
 		std::cout << std::setw(4) << arr[i];
@@ -32,7 +52,7 @@ void myVec::push_back(int newNum)
 	
 	long int log2OfSize{static_cast<long int>(std::log2(size))};
 
-	if(size == (1 << log2OfSize))
+	if (size == (1 << log2OfSize))
 	{
 		//copy old data to tempArr
 		int* tempArr{new int [size-1]};
@@ -70,7 +90,7 @@ void myVec::pop_back() {
 	
 	long int log2OfSize{static_cast<long int>(std::log2(size))};
 
-	if(size == (1 << log2OfSize))
+	if (size == (1 << log2OfSize))
 	{
 		//copy old data to tempArr
 		int* tempArr{new int [size-1]};
@@ -91,4 +111,93 @@ void myVec::pop_back() {
 	}
 
 	size--;
+}
+
+
+long int myVec::innerSum(const myVec& vec) const {
+	if (size != vec.size)
+	{
+		std::cout << "Two vectors must have same size!" << std::endl;
+		return 0;
+	}
+
+	long int sum{};
+	for (long int i{}; i < size; i++)
+	{
+		sum += (arr[i] + vec.arr[i]);
+	}
+	return sum;
+}
+
+
+long int myVec::innerProduct(const myVec& vec) const {
+	if (size != vec.size)
+	{
+		std::cout << "Two vectors must have same size!" << std::endl;
+		return 0;
+	}
+
+	long int product{1};
+	for (long int i{}; i < size; i++)
+	{
+		product *= (arr[i] * vec.arr[i]);
+	}
+	return product;
+}
+
+bool myVec::operator<(const myVec& vec) const {
+	return size < vec.size; 
+}
+
+bool myVec::operator==(const myVec& vec) const {
+	return size == vec.size;
+}
+
+
+myVec& myVec::operator=(const myVec& vec) {
+	std::cout << "operator = copy version" << std::endl;
+	if(this == &vec)
+		return *this;
+	size = vec.size;
+	capacity = vec.capacity;
+	delete[] arr; //must be used becuase when this operator was called,
+	              //...the object has the arr!
+	arr = new int [capacity];
+	for (long int i{}; i < capacity; i++)
+	{
+		arr[i] = vec.arr[i];
+	}
+	return *this;
+}
+
+myVec& myVec::operator=(myVec&& vec) {
+	std::cout << "operator = move version" << std::endl;
+	if(this == &vec)
+		return *this;
+	size = vec.size;
+	capacity = vec.capacity;
+	delete[] arr;
+	arr = vec.arr;
+	vec.arr = nullptr; //important!!
+	return *this;
+}
+
+myVec myVec::operator+(const myVec& vec) {
+	if (size != vec.size)
+	{
+		std::cout << "Two vectors must have same size!" << std::endl;
+		return *this;
+	}
+
+	myVec copy{*this};
+	for (long int i{}; i < size; i++)
+	{
+		copy.arr[i] = (arr[i] + vec.arr[i]);
+	}
+	return copy;
+}
+
+std::ostream& operator<<(std::ostream& os, myVec vec) {
+	os << vec.size;
+	return os;
 }

@@ -1,47 +1,44 @@
 #include <iostream>
 #include "myVec.h"
+#include <utility>
+
+using namespace std::rel_ops;
 
 int main() {
 
 	myVec vec{};
-	for(size_t i{}; i < 50; i++)
+	myVec vec2{std::move(vec)};
+	vec.show();
+/*
+	myVec vec2{vec};
+	
+	for(size_t i{1}; i < 6; i++)
 	{
-		//std::cout << "iter " << i << ": ";
 		vec.push_back(i);
-		/*std::cout << "Cap is: "
-				  << vec.capacity
-				  << ", Size is: "
-				  << vec.size
-				  << std::endl;*/
+		//	vec2.push_back(i);
 	}
 
-	vec.show();
-	
-	for(size_t i{}; i < 20; i++)
+	myVec vec2{vec};
+
+	for(size_t i{1}; i < 6; i++)
 	{
-		//std::cout << "iter " << i << ": ";
-		vec.pop_back();
-		/*std::cout << "Cap is: "
-				  << vec.capacity
-				  << ", Size is: "
-				  << vec.size
-				  << std::endl;*/
+		//vec.push_back(i);
+		vec2.push_back(i);
 	}
 
-	vec.show();
-	
-	for(size_t i{}; i < 30; i++)
-	{
-		//std::cout << "iter " << i << ": ";
-		vec.push_back(i);
-		/*std::cout << "Cap is: "
-				  << vec.capacity
-				  << ", Size is: "
-				  << vec.size
-				  << std::endl;*/
-	}
+	std::cout << vec.innerSum(vec2) << std::endl;
+	std::cout << vec2.innerProduct(vec) << std::endl;
+
+	std::cout << (vec < vec2) << std::endl;
+	std::cout << (vec == vec2) << std::endl;
 
 	vec.show();
-	
+	vec2.show();
+
+	vec = myVec();
+	vec.show();
+
+	std::cout << vec << std::endl;
+*/
 	return 0;
 }
