@@ -3,10 +3,7 @@
 MaxHeap::MaxHeap() = default;
 MaxHeap::MaxHeap(int* arr, size_t size) {
 	for (size_t i{}; i < size; i++)
-	{
-		vec.push_back(arr[i]);
-		buildMaxHeap();
-	}
+		add(arr[i]);
 }
 
 size_t MaxHeap::parentIndex(size_t i) {
@@ -39,17 +36,13 @@ void MaxHeap::maxHeapify(size_t i) {
 	size_t r{ rightChildIndex(i) };
 	
 	if (l <= heapSize && vec[l-1] > vec[i-1])
-	{
 		largest = l;
-	}
 	else
-	{
 		largest = i;
-	}
+	
 	if (r <= heapSize && vec[r-1] > vec[largest-1])
-	{
 		largest = r;
-	}
+	
 	if (largest != i)
 	{
 		swap(i, largest);
@@ -109,16 +102,13 @@ void MaxHeap::deleteMax() {
 	if(vec.size() > 0)
 	{
 		for (size_t i{1}; i < vec.size(); i++)
-		{
 			swap(i, i+1);
-		}
+		
 		vec.pop_back();
 		buildMaxHeap();
 	}
 	else
-	{
 		std::cout << "Heap underflow" << std::endl;
-	}
 }
 
 int MaxHeap::max() {
@@ -150,7 +140,5 @@ void MaxHeap::heapSort() {
     //Reversing vector
 	size_t tempSize{vec.size()};
 	for (size_t i{}; i < tempSize/2; i++)
-	{
 		std::swap(vec[i], vec[tempSize - i - 1]);
-	}
 }
