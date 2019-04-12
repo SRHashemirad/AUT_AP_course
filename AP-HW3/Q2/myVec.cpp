@@ -17,7 +17,7 @@ myVec::myVec(const myVec& vec) {
 	capacity = vec.capacity;
 
 	arr = new int [capacity];
-	for (long int i{}; i < capacity; i++)
+	for (unsigned long i{}; i < capacity; i++)
 	{
 		arr[i] = vec.arr[i];
 	}
@@ -39,7 +39,7 @@ myVec::~myVec() {
 
 void myVec::show() const {
 	std::cout << "The vector is: ";
-	for (long int i{}; i < size; i++)
+	for (unsigned long i{}; i < size; i++)
 		std::cout << std::setw(4) << arr[i];
 	std::cout << std::endl;
 }
@@ -50,13 +50,13 @@ void myVec::push_back(int newNum)
 
 	//Checking if capacity needs to be larger or not
 	
-	long int log2OfSize{static_cast<long int>(std::log2(size))};
+	unsigned long log2OfSize{static_cast<unsigned long>(std::log2(size))};
 
-	if (size == (1 << log2OfSize))
+	if (size == static_cast<unsigned long>(1 << log2OfSize))
 	{
 		//copy old data to tempArr
 		int* tempArr{new int [size-1]};
-		for (long int i{}; i < size-1; i++)
+		for (unsigned long i{}; i < size-1; i++)
 		{
 			tempArr[i] = arr[i];
 		}
@@ -65,7 +65,7 @@ void myVec::push_back(int newNum)
 		capacity *= 2;
 
 		arr = new int [capacity];
-		for (long int i{}; i < size-1; i++)
+		for (unsigned long i{}; i < size-1; i++)
 		{
 			arr[i] = tempArr[i];
 		}
@@ -88,13 +88,13 @@ void myVec::pop_back() {
 	
 	//Checking if capacity needs to be smaller or not
 	
-	long int log2OfSize{static_cast<long int>(std::log2(size))};
+	unsigned long log2OfSize{static_cast<unsigned long>(std::log2(size))};
 
-	if (size == (1 << log2OfSize))
+	if (size == static_cast<unsigned long>(1 << log2OfSize))
 	{
 		//copy old data to tempArr
 		int* tempArr{new int [size-1]};
-		for (long int i{}; i < size-1; i++)
+		for (unsigned long i{}; i < size-1; i++)
 		{
 			tempArr[i] = arr[i];
 		}
@@ -103,7 +103,7 @@ void myVec::pop_back() {
 		capacity /= 2;
 
 		arr = new int [capacity];
-		for (long int i{}; i < size-1; i++)
+		for (unsigned long i{}; i < size-1; i++)
 		{
 			arr[i] = tempArr[i];
 		}
@@ -114,7 +114,7 @@ void myVec::pop_back() {
 }
 
 
-long int myVec::innerSum(const myVec& vec) const {
+unsigned long myVec::innerSum(const myVec& vec) const {
 	if (size != vec.size)
 	{
 		std::cout << "Two vectors must have same size!" << std::endl;
@@ -122,7 +122,7 @@ long int myVec::innerSum(const myVec& vec) const {
 	}
 
 	long int sum{};
-	for (long int i{}; i < size; i++)
+	for (unsigned long i{}; i < size; i++)
 	{
 		sum += (arr[i] + vec.arr[i]);
 	}
@@ -130,7 +130,7 @@ long int myVec::innerSum(const myVec& vec) const {
 }
 
 
-long int myVec::innerProduct(const myVec& vec) const {
+unsigned long myVec::innerProduct(const myVec& vec) const {
 	if (size != vec.size)
 	{
 		std::cout << "Two vectors must have same size!" << std::endl;
@@ -138,7 +138,7 @@ long int myVec::innerProduct(const myVec& vec) const {
 	}
 
 	long int product{1};
-	for (long int i{}; i < size; i++)
+	for (unsigned long i{}; i < size; i++)
 	{
 		product *= (arr[i] * vec.arr[i]);
 	}
@@ -163,7 +163,7 @@ myVec& myVec::operator=(const myVec& vec) {
 	delete[] arr; //must be used becuase when this operator was called,
 	              //...the object has the arr!
 	arr = new int [capacity];
-	for (long int i{}; i < capacity; i++)
+	for (unsigned long i{}; i < capacity; i++)
 	{
 		arr[i] = vec.arr[i];
 	}
@@ -190,7 +190,7 @@ myVec myVec::operator+(const myVec& vec) {
 	}
 
 	myVec copy{*this};
-	for (long int i{}; i < size; i++)
+	for (unsigned long i{}; i < size; i++)
 	{
 		copy.arr[i] = (arr[i] + vec.arr[i]);
 	}

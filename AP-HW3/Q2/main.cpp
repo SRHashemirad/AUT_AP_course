@@ -8,7 +8,7 @@ int main() {
 
 	myVec vec{};
 	myVec vec2{std::move(vec)};
-	vec.show();
+	//vec.show();
 /*
 	myVec vec2{vec};
 	

@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <cmath> //pow
 
+
 class myVec;
 std::ostream& operator<<(std::ostream& os, myVec vec);
 
@@ -19,8 +20,8 @@ public:
 	void show() const;
 	void push_back(int);
 	void pop_back();
-	long int innerSum(const myVec&) const;
-	long int innerProduct(const myVec&) const;
+	unsigned long innerSum(const myVec&) const;
+	unsigned long innerProduct(const myVec&) const;
 
 	bool operator<(const myVec&) const;
 	bool operator==(const myVec&) const;
@@ -28,8 +29,8 @@ public:
 	myVec& operator=(myVec&&);
 	myVec operator+(const myVec& vec);
 
-	long int size;
-	long int capacity;
+	unsigned long size;
+	unsigned long capacity;
 //private:
 	int* arr;
 };
