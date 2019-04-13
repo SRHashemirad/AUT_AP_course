@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Annie Use Your Telescope', cursive;
+  background-color : #d3d3d3;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+div.bs:hover, a:hover {
+  color: #7300F6;
+  cursor: pointer;
+}
+
+html {
+  background: url('http://i.imgur.com/OtxkMsF.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#board-size-options {
+  width: 40%;
+  font-family: 'Questrial', cursive;
+  font-size: 3vw;
+  text-align: center;
+  margin: auto;
+}
+
+header {
+  margin: auto;
+  text-align: center;
+  width: 40%;
+  padding-top: 20px;
+}
+
+#game {
+  font-size: 5vw;
+  letter-spacing: 1vw;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#dots {
+  font-family:'Codystar', cursive;
+  font-size: 7vw;
+  text-align: center;
+  letter-spacing: 1vw;
+  display: inline-block;
+}
+
+#turnMessage{
+  font-size: 20px;
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 15px;
+}
+
+#win-message{
+  font-size: 30px;
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 15px 15px 30px;
+  display: inline;
+}
+
+#playAgain:hover {
+  color: #7300F6;
+  cursor: pointer;
+}
+
+#table {
+  margin: auto;
+  padding: 15px;
+}
+
+td {
+  padding: 0;
+  text-align: center;
+  font-family: none;
+}
+
+div.box {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background-color: transparent;
+}
+
+main{
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding: 5px;
+}
+
+#board {
+  margin: 0 auto 100px;
+}
+
+div.player {
+  display: inline-block;
+  font-family: 'Questrial', cursive;
+  letter-spacing: 1vw;
+  font-size: 3.5vw;
+  text-align: center;
+  margin: 10px;
+}
+
+#p1, #s1 {
+  color: #F60303;
+}
+
+#score {
+  padding: 10px;
+}
+
+#p2, #s2 {
+  color: #042AFF;
+}
+
+div .line {
+  background-color: transparent;
+  padding: 0;
+  margin: auto;
+}
+
+div .line:hover{
+  cursor: pointer;
+}
+
+div .h {
+  width: 50px;
+  height: 4px;
+}
+
+div .v {
+  width: 4px;
+  height: 50px;
+}
+
+div #square {
+  background-color: none;
+}
+
+@media screen and (max-width: 800px){
+  main {
+    width: 100%;
+  }
+
+  #board-size-options, div.player {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 800px){
+  main {
+    width: 70%;
+  }
+
+  #board-size-options, div.player {
+    font-size: 30px;
+  }
+}
+
+
+

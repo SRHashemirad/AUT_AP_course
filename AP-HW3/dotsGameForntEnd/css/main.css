@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Annie Use Your Telescope', cursive;
+  background-color : #d3d3d3;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.container h1 {
+    color: white;
+}
+
+header {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  width: 70%;
+  padding-top: 50px;
+  position: relative;
+}
+
+#game {
+  font-size: 5vw;
+  letter-spacing: 1vw;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#dots {
+  font-family:'Codystar', cursive;
+  font-size: 9vw;
+  letter-spacing: 15px;
+  display: inline-block;
+  text-align: center;
+}
+
+main{
+  margin: 0 auto 100px;
+  width: 40%;
+  text-align: center;
+  overflow: auto;
+  padding-top: 0;
+}
+
+#play{
+  font-size: 3vw;
+  letter-spacing: 1vw;
+  text-align: center;
+  margin: 0 20px 20px 20px;
+}
+
+div.play, ul{
+  font-size: 3vw;
+}
+
+ul{
+  text-align: left;
+  margin: auto;
+  width: 250px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#play:hover, li:hover, a:hover {
+  color: #7300F6;
+  cursor: pointer;
+}
+
+
+/*RESPONSIVE CSS*/
+@media screen and (max-width: 600px){
+  header{
+    width: 300px;
+  }
+
+  #game {
+    font-size: 29px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  main {
+    width: 300px;
+  }
+
+  #play, div.play, ul, #instructions, #about-me {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  header{
+    width: 800px;
+  }
+
+  #game {
+    font-size: 61px
+  }
+
+  #dots {
+    font-size: 111px;
+  }
+}
+
+
+
+
+
+
+
+
+

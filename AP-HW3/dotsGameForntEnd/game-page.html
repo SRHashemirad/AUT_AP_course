@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dots and Boxes Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Codystar|Annie+Use+Your+Telescope|Megrim|Monofett|Questrial|Reenie+Beanie|Nothing+You+Could+Do" rel="stylesheet">
+  <link rel="stylesheet" href="css/game-page.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <div id="game">THE GAME OF</div>
+      <div id="dots">DOTS</div>
+    </a>
+  </header>
+  <main>
+    <div style="height: 70px"></div>
+    <div class="player">
+      <div id="p1">PLAYER ONE</div>
+      <div id="s1" class="score">0</div>
+    </div>
+    <div class="player">
+      <div id="p2">PLAYER TWO</div>
+      <div id="s2" class="score">0</div>
+    </div>
+    <div id = "board-size-options">
+      <div class="play">Choose your board size:</div>
+          <div id="four" class="bs">4 x 4</div>
+          <div id="six" class="bs">6 x 6</div>
+          <div id="eight" class="bs">8 x 8</div>
+    </div>
+    <div id="win-message">
+      <div id="message"></div>
+      <div id="playAgain"></div>
+    </div>
+    <div id="board">
+      <table id="table">
+      </table>
+    </div>
+  </main>
+  <script src="js/game-page.js"></script>
+</body>
+</html>
