@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <set>
+#include <iterator>
 
 void printVector (const std::vector<int>& vec);
 void doubleVector (std::vector<int>& vec);
@@ -34,17 +35,18 @@ int main() {
     //printVector(vec);
 
     // Part D //
-    //std::vector<int>::iterator it;
-    //std::sort(vec.begin(), vec.end());
+    //std::vector<int>::iterator it; //iterator for vector class
+    //std::sort(vec.begin(), vec.end()); //sort vector
     //it = std::unique_copy(std::begin(vec), std::end(vec), std::begin(vec), [](int a, int b){return a==b;});
-    //vec.resize(std::distance(vec.begin(),it));
+                                                                    //copy unique elements
+    //vec.resize(std::distance(vec.begin(),it)); //rebuild unique vector
     //printVector(vec);
 
     // Part E //
     std::set<int> mySet(vec.begin(), vec.end());
     printSet(mySet);
 
-    mySet.erase(mySet.find(4), mySet.end());
+    mySet.erase(mySet.find(4), mySet.end()); //erase elements that are larger than 3
     printSet(mySet);
 
     return 0;
@@ -52,7 +54,7 @@ int main() {
 
 
 void doubleVector (std::vector<int>& vec) {
-    static int arg{};
+    static size_t arg{};
     if (arg < vec.size() - 1)
     {
         vec[arg++] *= 2;    // If static int arg < vec.size, double it
@@ -66,21 +68,12 @@ void doubleVector (std::vector<int>& vec) {
 }
 
 void printVector (const std::vector<int>& vec) {
-    static int arg{};
-    if (arg < vec.size() - 1)
-    {
-        std::cout << vec[arg++] << ", "; // If static int arg < vec.size, std::cout
-        printVector(vec);                // ... and call print function more!
-    }
-    else
-    {
-        std::cout << vec[arg] << std::endl;
-        arg = 0;
-    }
+    std::copy(vec.begin(), vec.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << std::endl;
 }
 
 double averageCalculate (const std::vector<int>& vec) {
-    static int arg{};
+    static size_t arg{};
     static double sum{};
     if (arg < vec.size() - 1)
     {
@@ -96,8 +89,8 @@ double averageCalculate (const std::vector<int>& vec) {
 }
 
 void averageSort (std::vector<int>& vec, double avg) {
-    static int i{};
-    static int j{1};
+    static size_t i{};
+    static size_t j{1};
     if (i < vec.size() - 1) //From first element to one before last
     {
         if (j < vec.size()) //From one after ith element to last
@@ -125,15 +118,6 @@ void averageSort (std::vector<int>& vec, double avg) {
 }
 
 void printSet (const std::set<int>& s) {
-    static auto arg{std::begin(s)};
-    if (arg != (--std::end(s)))
-    {
-        std::cout << *(arg++) << ", "; // If static int arg < vec.size, std::cout
-        printSet(s);                // ... and call print function more!
-    }
-    else
-    {
-        std::cout << *arg << std::endl;
-        arg = s.begin();
-    }
+    std::copy(s.begin(), s.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << std::endl;
 }
